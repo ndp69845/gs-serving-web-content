@@ -1,0 +1,22 @@
+{
+    "tasks": [
+        {
+            "type": "che",
+            "label": "maven build",
+            "command": "mvn clean install",
+            "target": {
+                "workingDir": "${CHE_PROJECTS_ROOT}/java-web-spring",
+                "component": "tools"
+            }
+        },
+        {
+            "type": "che",
+            "label": "run webapp",
+            "command": "java -jar -Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=5005 \\\ntarget/*.jar\n",
+            "target": {
+                "workingDir": "${CHE_PROJECTS_ROOT}/java-web-spring",
+                "component": "tools"
+            }
+        }
+    ]
+}
